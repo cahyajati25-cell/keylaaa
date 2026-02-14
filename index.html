@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Keylaa 🤍</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+  background:linear-gradient(180deg,#fff1f4,#fbeaea);
+  color:#5a2a2a;
+  text-align:center;
+}
+h1,h2{color:#8b2c2c;}
+button{
+  background:#8b2c2c;
+  color:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:30px;
+  cursor:pointer;
+  transition:.3s;
+}
+button:hover{background:#a93a3a;transform:scale(1.05);}
+.box{
+  background:rgba(255,255,255,0.75);
+  padding:20px;
+  border-radius:20px;
+  max-width:90%;
+  margin:60px auto;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s;
+}
+.show{opacity:1;transform:translateY(0);}
+.secret{display:none;}
+.heart{font-size:50px;animation:beat 1.5s infinite;}
+@keyframes beat{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+
+.flower{
+  width:90%;
+  max-width:300px;
+  border-radius:20px;
+  margin:40px auto;
+  display:block;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  opacity:0;
+  transform:scale(0.9);
+  transition:1s;
+}
+.flower.show{opacity:1;transform:scale(1);}
+</style>
+</head>
+
+<body>
+
+<div class="box show">
+  <div class="heart">❤️</div>
+  <h1>Hai Keylaa…</h1>
+  <p>
+    Aku nggak bisa ngasih bunga asli lewat layar…<br>
+    jadi aku bikinin taman kecil buat kamu 🤍<br><br>
+    Scroll pelan-pelan ya…
+  </p>
+  <br>
+  <button onclick="scrollDown()">Lihat bunganya 🌸</button>
+</div>
+
+<img src="taman.jpg" class="flower">
+<img src="taman2.jpg" class="flower">
+<img src="taman3.jpg" class="flower">
+<img src="kucing.png" class="flower" style="max-width:200px">
+<img src="sunset.png" class="flower">
+
+<div class="box secret" id="secret">
+  <h2>Untuk Kamu 🤍</h2>
+  <p>
+   kalo ada 1% yang suka sama kamu itu aku,<br>
+   aku gabole 2% apalagi 1,1 😤❤️<br><br>
+   AHAAAYYYYYY LOPE IYUUU CAYANGGGGGGG 🌹
+  </p>
+</div>
+
+<script>
+const boxes=document.querySelectorAll('.box');
+const flowers=document.querySelectorAll('.flower');
+const secret=document.getElementById('secret');
+
+function scrollDown(){
+  window.scrollBy({top:window.innerHeight,behavior:'smooth'});
+}
+
+window.addEventListener('scroll',()=>{
+  boxes.forEach(box=>{
+    const top=box.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      box.classList.add('show');
+    }
+  });
+  flowers.forEach(f=>{
+    const top=f.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      f.classList.add('show');
+    }
+  });
+  if(window.innerHeight + window.scrollY >= document.body.offsetHeight-10){
+    secret.style.display='block';
+    secret.classList.add('show');
+  }
+});
+</script>
+
+</body>
+</html>
+ 
